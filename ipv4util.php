@@ -24,6 +24,7 @@ class IPv4Util {
      * @param int $n number
      * @param int $b number of bits to shift
      * @return int shifted number
+     * @throws InvalidArgumentException
      */
     public static function lrs($n, $b) {
         $s = 8 * PHP_INT_SIZE;
@@ -41,6 +42,7 @@ class IPv4Util {
      * @param string IP address string (e.g. '192.168.1.1')
      * @param string CIDR range string (e.g. '192.168.1.0/24')
      * @return bool true if match, false otherwise
+     * @throws InvalidArgumentException
      */
     public static function cidr_match($ip, $cidr) {
         if(!preg_match(self::IP_REGEX, $ip) || !preg_match(self::CIDR_REGEX, $cidr, $parts)) {
